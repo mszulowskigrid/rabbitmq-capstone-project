@@ -3,3 +3,7 @@ spring:
     name: message-consumer
   rabbitmq:
     addresses: localhost:30001,localhost:30002,localhost:30003
+
+rabbit:
+  consumer:
+    queue: 'metrics'

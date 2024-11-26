@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class MetricsListener {
 
-    @RabbitListener(queues = "metrics")
+    @RabbitListener(queues = "#{@environment.getProperty('rabbit.consumer.queue')}")
     public void onMessage(String message) {
         log.info("Received metrics:\n{}", message);
     }
