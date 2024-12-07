@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: message-producer
+  rabbitmq:
+    addresses: localhost:30001,localhost:30002,localhost:30003
+
+rabbit:
+  producer:
+    queue: 'metrics'

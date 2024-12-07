@@ -1,0 +1,37 @@
+services:
+  rabbitmq-1:
+    image: rabbitmq:4.0.3-management-alpine
+    container_name: rabbitmq-1
+    ports:
+      - 30001:5672
+      - 30011:15672
+    networks:
+      - metrics
+    environment:
+      - RABBITMQ_ERLANG_COOKIE=rabbitcluster
+      - RABBITMQ_NODENAME=rabbit@rabbitmq-1
+  rabbitmq-2:
+    image: rabbitmq:4.0.3-management-alpine
+    container_name: rabbitmq-2
+    ports:
+      - 30002:5672
+      - 30012:15672
+    networks:
+      - metrics
+    environment:
+      - RABBITMQ_ERLANG_COOKIE=rabbitcluster
+      - RABBITMQ_NODENAME=rabbit@rabbitmq-2
+  rabbitmq-3:
+    image: rabbitmq:4.0.3-management-alpine
+    container_name: rabbitmq-3
+    ports:
+      - 30003:5672
+      - 30013:15672
+    networks:
+      - metrics
+    environment:
+      - RABBITMQ_ERLANG_COOKIE=rabbitcluster
+      - RABBITMQ_NODENAME=rabbit@rabbitmq-3
+
+networks:
+  metrics:
